@@ -11,15 +11,26 @@
     <hr>
 
     <div>
-      {{ activePage }}
+      <PageHome />
+      <PageRanking />
+      <PageVoting />
     </div>
   </div>
 </template>
 
 <script>
+  import PageHome from './components/PageHome.vue';
+  import PageRanking from './components/PageRanking.vue';
+  import PageVoting from './components/PageVoting.vue';
+
   /* eslint-disable */
   export default {
     name: 'App',
+    components: {
+      PageHome,
+      PageRanking,
+      PageVoting
+    },
     data() {
       return {
         activePage: 'home',
