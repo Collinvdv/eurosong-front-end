@@ -13,8 +13,8 @@
         <hr>
 
         <label> Artist </label>
-        <input type="text">
-        <button> 
+        <input type="text" v-model="newArtist">
+        <button @click="addArtist()">
             Add artists
         </button>
     </div>
@@ -28,7 +28,8 @@
         },
         data() {
             return {
-                artists: []
+                artists: [],
+                newArtist: ""
             }
         },
         methods: {
@@ -40,7 +41,16 @@
                     })
             },
             addArtist() {
-                console.log("Add artist");
+                fetch("http://localhost:3000/api/artists", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: this.newArtist
+                    })
+                })
+                console.log("Add artist:" + this.newArtist);
             }
         }
     }
