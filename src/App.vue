@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-for="(grade, index) in grades" :key="index">
+      <CounterComponent :initialValue="grade"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CounterComponent from './components/CounterComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CounterComponent
+  },
+  data() {
+    return {
+      grades: [10, 12, 13, 14, 15]
+    }
   }
 }
 </script>
