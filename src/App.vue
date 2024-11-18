@@ -2,14 +2,8 @@
   <div id="app">
     <!-- Navigation -->
     <ul>
-      <li @click="changePage('home')">
-        Home
-      </li>
-      <li @click="changePage('ranking')">
-        Ranking
-      </li>
-      <li @click="changePage('voting')">
-        Voting
+      <li v-for="(page, index) in pages" :key="index" @click="changePage(page)">
+        {{ page }}
       </li>
     </ul>
 
@@ -28,7 +22,8 @@
     name: 'App',
     data() {
       return {
-        activePage: 'home'
+        activePage: 'home',
+        pages: ['home', 'ranking', 'voting']
       }
     },
     methods: {
