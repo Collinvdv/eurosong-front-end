@@ -1,25 +1,35 @@
 <template>
   <div id="app">
-    <div v-for="(grade, index) in grades" :key="index">
-      <CounterComponent :initialValue="grade"/>
+    <!-- Navigation -->
+    <ul>
+      <li>
+        Home
+      </li>
+      <li>
+        Ranking
+      </li>
+      <li>
+        Voting
+      </li>
+    </ul>
+
+    <!-- Main content -->
+    <div>
+      {{ activePage }}
     </div>
   </div>
 </template>
 
 <script>
-import CounterComponent from './components/CounterComponent.vue'
-
-export default {
-  name: 'App',
-  components: {
-    CounterComponent
-  },
-  data() {
-    return {
-      grades: [10, 12, 13, 14, 15]
+  /* eslint-disable */
+  export default {
+    name: 'App',
+    data() {
+      return {
+        activePage: 'home'
+      }
     }
   }
-}
 </script>
 
 <style>
