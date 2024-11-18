@@ -50,6 +50,10 @@
                         name: this.newArtist
                     })
                 })
+                    .then(response => response.json())
+                    .then(() => {
+                        this.fetchArtists();
+                    })
                 console.log("Add artist:" + this.newArtist);
             }
         }
