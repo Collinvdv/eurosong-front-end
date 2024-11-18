@@ -2,7 +2,7 @@
   <div id="app">
     <!-- Navigation -->
     <ul>
-      <li v-for="(page, index) in pages" :key="index" @click="changePage(page)">
+      <li v-for="(page, index) in pages" :key="index" @click="changePage(page)" style="cursor: pointer;">
         {{ page }}
       </li>
     </ul>
@@ -11,9 +11,9 @@
     <hr>
 
     <div>
-      <PageHome />
-      <PageRanking />
-      <PageVoting />
+      <PageHome v-if="activePage == 'home'"/>
+      <PageRanking v-if="activePage == 'ranking'" />
+      <PageVoting v-if="activePage == 'voting'"/>
     </div>
   </div>
 </template>
