@@ -2,18 +2,20 @@
   <div id="app">
     <!-- Navigation -->
     <ul>
-      <li>
+      <li @click="changePage('home')">
         Home
       </li>
-      <li>
+      <li @click="changePage('ranking')">
         Ranking
       </li>
-      <li>
+      <li @click="changePage('voting')">
         Voting
       </li>
     </ul>
 
     <!-- Main content -->
+    <hr>
+
     <div>
       {{ activePage }}
     </div>
@@ -27,6 +29,11 @@
     data() {
       return {
         activePage: 'home'
+      }
+    },
+    methods: {
+      changePage(page) {
+        this.activePage = page;
       }
     }
   }
