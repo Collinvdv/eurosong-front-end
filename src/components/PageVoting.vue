@@ -52,9 +52,13 @@
                     })
                 })
                     .then(response => response.json())
-                    .then((data) => {
+                    .then(() => {
                         this.votesSended.push(points);
-                        console.log(data);
+
+                        if (this.votesSended.length == 3) {
+                            this.$emit('cp', 'ranking');
+                        }
+
                     })
             },
             fetchSongs() {

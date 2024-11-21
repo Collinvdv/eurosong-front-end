@@ -14,7 +14,7 @@
       <PageHome v-if="activePage == 'home'"/>
       <PageArtists v-if="activePage == 'artists'"/>
       <PageRanking v-if="activePage == 'ranking'" />
-      <PageVoting v-if="activePage == 'voting'"/>
+      <PageVoting v-if="activePage == 'voting'" v-on:cp="changePage"/>
     </div>
   </div>
 </template>
@@ -42,6 +42,7 @@
     },
     methods: {
       changePage(page) {
+        console.log("Changing page to: " + page);
         this.activePage = page;
       }
     }
