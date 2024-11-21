@@ -6,6 +6,18 @@
 
 <script>
     export default {
-        name: 'PageRanking'
+        name: 'PageRanking',
+        mounted() {
+            this.fetchRanking();
+        },
+        methods: {
+            fetchRanking() {
+                fetch("http://localhost:3000/api/ranking")
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+            }
+        }
     }
 </script>
