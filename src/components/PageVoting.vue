@@ -5,14 +5,14 @@
         </h1>
         
         <div>
-            <button>
+            <button @click="prevSong()">
                 Prev song
             </button>
             
             <div v-if="songs.length > 0">
                 {{ songs[activeSongIndex].artist_name }} - Song {{ songs[activeSongIndex].song_name }}
             </div>
-            <button>
+            <button @click="nextSong()">
                 Next song
             </button>
         </div>
@@ -47,10 +47,14 @@
                     })
             },
             prevSong() {
-                this.activeSongIndex--;
+                if (this.activeSongIndex > 0) {
+                    this.activeSongIndex--;
+                }
             },
             nextSong() {
-                this.activeSongIndex++;
+                if (this.activeSongIndex < this.songs.length - 1) {
+                    this.activeSongIndex++;
+                }
             },
         }
     }
